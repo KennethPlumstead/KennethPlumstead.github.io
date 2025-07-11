@@ -1,0 +1,175 @@
+/* ==== Base Reset ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+  color: #a8dba8;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==== Matrix Background ==== */
+#matrix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  opacity: 0.25;
+}
+
+/* ==== Terminal Window ==== */
+.terminal-window {
+  width: 90%;
+  max-width: 900px;
+  height: 90vh;
+  background-color: #111;
+  border-radius: 8px;
+  box-shadow: 0 0 40px rgba(0, 255, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 2px solid #00ff00;
+}
+
+/* ==== Terminal Header Bar ==== */
+.terminal-header {
+  display: flex;
+  align-items: center;
+  background: #222;
+  padding: 10px 16px;
+  border-bottom: 1px solid #00ff00;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.buttons {
+  display: flex;
+  gap: 8px;
+  margin-right: 12px;
+}
+
+.buttons span {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.close { background: #ff5f56; }
+.minimize { background: #ffbd2e; }
+.maximize { background: #27c93f; }
+
+.title {
+  font-size: 14px;
+  color: #00ff00;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* ==== Terminal Body ==== */
+.terminal-body {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #000;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+/* ==== Output Area ==== */
+#output {
+  flex-grow: 1;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.6;
+  color: #a8dba8;
+}
+
+#output a {
+  color: #00ffcc;
+  text-decoration: underline;
+}
+
+#output a:hover {
+  color: #66fff9;
+}
+
+/* ==== Input Line ==== */
+.input-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.prompt {
+  font-weight: bold;
+  color: #00ff00;
+  font-family: inherit;
+}
+
+#commandInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #00ff00;
+  font-family: inherit;
+  font-size: inherit;
+  caret-color: #00ff00;
+}
+
+/* ==== Error Messages ==== */
+.error {
+  color: #ff4c4c;
+  font-weight: bold;
+}
+
+/* ==== Accessibility Utility ==== */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ==== Responsive ==== */
+@media (max-width: 600px) {
+  .terminal-window {
+    width: 95%;
+    height: 95vh;
+  }
+
+  .terminal-header {
+    padding: 8px 12px;
+  }
+
+  .title {
+    font-size: 13px;
+  }
+
+  .terminal-body {
+    padding: 16px;
+  }
+}
